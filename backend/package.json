@@ -1,0 +1,18 @@
+{
+  "name": "react-typescript-fullstack-starter-pack",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "nodemon --watch --exec \"ts-node\" src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "12.0.0",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "4.1.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

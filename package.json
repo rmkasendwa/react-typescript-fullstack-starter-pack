@@ -2,10 +2,9 @@
   "name": "react-typescript-fullstack-starter-pack",
   "version": "0.1.0",
   "scripts": {
-    "start:server": "npx json-server --watch db.json --port 4000 --delay 400",
+    "start:server": "nodemon --watch 'backend/**/*.ts' --exec \"ts-node\" backend/src/index.ts",
     "start:client": "react-scripts start",
-    "wait-on:server": "wait-on http://localhost:4000/",
-    "start": "concurrently  \"npm run start:server\" \"npm run wait-on:server && npm run start:client\"",
+    "start": "concurrently \"npm run start:client\" \"cd backend && npm run start:server\"",
     "build": "react-scripts build",
     "storybook": "start-storybook -p 8000 -s public",
     "test": "react-scripts test",
@@ -41,8 +40,7 @@
     "axios-mock-adapter": "^1.19.0",
     "concurrently": "6.0.0",
     "react-scripts": "4.0.3",
-    "typescript": "4.1.2",
-    "wait-on": "5.2.1"
+    "typescript": "4.1.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -71,5 +69,18 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
     ]
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmkasendwa/react-typescript-fullstack-starter-pack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmkasendwa/react-typescript-fullstack-starter-pack/issues"
+  },
+  "homepage": "https://github.com/rmkasendwa/react-typescript-fullstack-starter-pack#readme"
 }
