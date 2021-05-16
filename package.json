@@ -4,7 +4,7 @@
   "scripts": {
     "start:server": "cd backend && npm run start",
     "start:client": "webpack serve --config .build-scripts/.webpack-config/webpack.config.js --env env=dev",
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start": "concurrently --names \"Frontend,Backend\" -c \"blue.bold,magenta.bold\" \"npm run start:client\" \"npm run start:server\"",
     "build": "webpack --config .build-scripts/.webpack-config/webpack.config.js --env env=prod",
     "storybook": "start-storybook -p 8000 -s public",
     "test": "react-scripts test",
