@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start:server": "cd backend && npm run start",
     "start:client": "react-scripts start",
+    "start:server": "cd backend && npm start",
     "start": "concurrently --names \"Frontend,Backend\" -c \"blue.bold,magenta.bold\" \"npm run start:client\" \"npm run start:server\"",
-    "build": "react-scripts build",
+    "build:client": "react-scripts build",
+    "build:server": "cd backend && npm run build",
+    "build:bundle": "rm -rf dist && mv backend/dist dist && cp backend/package.json dist/package.json && mv build dist/public",
+    "build": "concurrently --names \"Frontend,Backend\" -c \"blue.bold,magenta.bold\" \"npm run build:client\" \"npm run build:server\" && npm run build:bundle",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
@@ -63,6 +66,7 @@
     "@types/node": "^12.20.13",
     "@types/react": "^17.0.6",
     "@types/react-dom": "^17.0.5",
+    "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -84,5 +88,6 @@
     "lint-staged": "^11.0.0",
     "node-sass": "^6.0.0",
     "prettier": "^2.3.0"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }
