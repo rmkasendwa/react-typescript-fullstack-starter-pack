@@ -7,8 +7,10 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.static('public'));
 
-app.get('/*', (req, res) =>
-  res.send(fs.readFileSync('public/index.html', 'UTF-8'))
+app.get('/*', (req, res, next) =>
+  fs.existsSync('public/index.html')
+    ? res.send(fs.readFileSync('public/index.html', 'UTF-8'))
+    : next()
 );
 
 app.listen(PORT, () => {
