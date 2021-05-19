@@ -1,90 +1,18 @@
 {
   "name": "react-typescript-fullstack-starter-pack",
   "version": "0.1.0",
+  "private": true,
   "scripts": {
     "start:server": "cd backend && npm run start",
-    "start:client": "webpack serve --config .build-scripts/.webpack-config/webpack.config.js --env env=dev",
+    "start:client": "react-scripts start",
     "start": "concurrently --names \"Frontend,Backend\" -c \"blue.bold,magenta.bold\" \"npm run start:client\" \"npm run start:server\"",
-    "build": "webpack --config .build-scripts/.webpack-config/webpack.config.js --env env=prod",
-    "storybook": "start-storybook -p 8000 -s public",
+    "build": "react-scripts build",
     "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
-    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
-  },
-  "dependencies": {
-    "axios": "0.21.1",
-    "moment": "2.29.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-icons": "4.2.0",
-    "reactstrap": "^8.9.0",
-    "styled-components": "5.2.1",
-    "uniqid": "5.3.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/plugin-transform-runtime": "^7.13.10",
-    "@babel/preset-env": "^7.12.16",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/preset-typescript": "^7.12.16",
-    "@babel/runtime": "^7.13.10",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
-    "@storybook/addon-actions": "^6.1.20",
-    "@storybook/addon-essentials": "^6.1.20",
-    "@storybook/addon-links": "^6.1.20",
-    "@storybook/node-logger": "^6.1.20",
-    "@storybook/preset-create-react-app": "^3.1.6",
-    "@storybook/react": "^6.1.20",
-    "@testing-library/jest-dom": "5.11.4",
-    "@testing-library/react": "11.1.0",
-    "@testing-library/user-event": "12.1.10",
-    "@types/jest": "26.0.15",
-    "@types/node": "12.0.0",
-    "@types/react": "17.0.0",
-    "@types/react-dom": "17.0.0",
-    "@types/styled-components": "5.1.7",
-    "@types/uniqid": "5.3.0",
-    "@typescript-eslint/eslint-plugin": "^4.15.0",
-    "@typescript-eslint/parser": "^4.15.0",
-    "axios-mock-adapter": "^1.19.0",
-    "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^3.0.0",
-    "concurrently": "6.0.0",
-    "css-loader": "^5.0.2",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "html-webpack-plugin": "^5.1.0",
-    "husky": "4",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "react-refresh": "^0.9.0",
-    "style-loader": "^2.0.0",
-    "typescript": "^4.1.5",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.7.3"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "husky": {
     "hooks": {
@@ -99,23 +27,61 @@
       "prettier --write"
     ]
   },
-  "description": "",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rmkasendwa/react-typescript-fullstack-starter-pack.git"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "keywords": [
-    "React",
-    "TypeScript",
-    "Webpack 5",
-    "Starter Template",
-    "Boilerplate"
-  ],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rmkasendwa/react-typescript-fullstack-starter-pack/issues"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   },
-  "homepage": "https://github.com/rmkasendwa/react-typescript-fullstack-starter-pack#readme"
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.20.13",
+    "@types/react": "^17.0.6",
+    "@types/react-dom": "^17.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.2.4",
+    "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
+    "concurrently": "^6.1.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0"
+  }
 }
